@@ -2,8 +2,8 @@ import 'package:coba_flutter/pages/order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../component/drink_tile.dart';
-import '../models/drink.dart';
+import '../component/menu_tile.dart';
+import '../models/menu.dart';
 import '../models/shop.dart';
 
 class ShopPage extends StatefulWidget {
@@ -14,13 +14,13 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-  //  select drink, go to another page
-  void goToOrderPage(Drink drink) {
+  //  select menu, go to another page
+  void goToOrderPage(Menu menu) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => OrderPage(
-          drink: drink,
+          menu: menu,
         ),
       ),
     );
@@ -36,23 +36,23 @@ class _ShopPageState extends State<ShopPage> {
             children: [
               // heading
               Text(
-                "Bubble Tea Shop",
+                "Menu Nasi Padang",
                 style: TextStyle(fontSize: 23),
               ),
 
               const SizedBox(height: 20),
 
-              // list of drink for sale
+              // list of menu for sale
               Expanded(
                 child: ListView.builder(
                   itemCount: value.shop.length,
                   itemBuilder: (context, index) {
-                    // get individual drink from shop
-                    Drink individualDrink = value.shop[index];
-                    // return that drink s a nice tile
-                    return DrinkTile(
-                      drink: individualDrink,
-                      onTap: () => goToOrderPage(individualDrink),
+                    // get individual menu from shop
+                    Menu individualMenu = value.shop[index];
+                    // return that menu s a nice tile
+                    return MenuTile(
+                      menu: individualMenu,
+                      onTap: () => goToOrderPage(individualMenu),
                       trailing: Icon(Icons.arrow_forward),
                     );
                   },

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../component/my_button.dart';
-import '../models/drink.dart';
+import '../models/menu.dart';
 import '../models/shop.dart';
 
 class OrderPage extends StatefulWidget {
-  final Drink drink;
+  final Menu menu;
   const OrderPage({
     super.key,
-    required this.drink,
+    required this.menu,
   });
 
   @override
@@ -23,7 +23,7 @@ class _OrderPageState extends State<OrderPage> {
     Provider.of<Shop>(
       context,
       listen: false,
-    ).addToCart(widget.drink);
+    ).addToCart(widget.menu);
 
     // direct user back to shop page
     Navigator.pop(context);
@@ -40,16 +40,16 @@ class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.drink.name)),
+      appBar: AppBar(title: Text(widget.menu.name)),
       backgroundColor: Colors.brown[300],
       body: Column(
         children: [
-          const SizedBox(height: 120),
-          Image.asset(widget.drink.imagePath),
+          const SizedBox(height: 70),
+          Image.asset(widget.menu.imageOrder),
           const SizedBox(height: 25),
           Center(
             child: Text(
-              "${widget.drink.price}",
+              "Rp.${widget.menu.price}",
               style: TextStyle(
                 fontSize: 35,
                 color: Colors.white,

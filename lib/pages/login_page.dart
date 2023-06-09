@@ -22,17 +22,18 @@ class _HomePageState extends State<LoginPage> {
             padding: EdgeInsets.all(25.0),
             child: Column(
               children: [
-                Image.asset('images/coffee.png'),
-                const SizedBox(height: 20),
+                const SizedBox(height: 60),
+                Image.asset('images/logo-padang.png'),
+                const SizedBox(height: 40),
                 Text(
-                  "Welcome To My Shop",
+                  "Welcome",
                   style: TextStyle(
-                    color: Colors.brown[800],
-                    fontSize: 28,
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 35),
+                const SizedBox(height: 40),
                 MyButton(
                   textButton: "Masuk",
                   onTap: () => signUserIn(context),

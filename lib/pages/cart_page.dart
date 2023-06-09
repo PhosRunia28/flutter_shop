@@ -1,9 +1,9 @@
-import 'package:coba_flutter/component/drink_tile.dart';
+import 'package:coba_flutter/component/menu_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../component/my_button.dart';
-import '../models/drink.dart';
+import '../models/menu.dart';
 import '../models/shop.dart';
 
 class CartPage extends StatefulWidget {
@@ -14,15 +14,15 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-  void removeFromCart(Drink drink) {
-    Provider.of<Shop>(context, listen: false).removeToCart(drink);
+  void removeFromCart(Menu menu) {
+    Provider.of<Shop>(context, listen: false).removeToCart(menu);
   }
 
   void payCart() {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("Successfully Pay Menu"),
+        title: Text("Successfully Pay"),
       ),
     );
   }
@@ -48,12 +48,12 @@ class _CartPageState extends State<CartPage> {
                 child: ListView.builder(
                   itemCount: value.cart.length,
                   itemBuilder: (context, index) {
-                    // get individual drink in cart
-                    Drink drink = value.cart[index];
+                    // get individual menu in cart
+                    Menu menu = value.cart[index];
                     // return as a nice tile
-                    return DrinkTile(
-                        drink: drink,
-                        onTap: () => removeFromCart(drink),
+                    return MenuTile(
+                        menu: menu,
+                        onTap: () => removeFromCart(menu),
                         trailing: Icon(Icons.delete));
                   },
                 ),

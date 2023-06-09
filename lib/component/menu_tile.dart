@@ -2,15 +2,15 @@
 
 import 'package:flutter/material.dart';
 
-import '../models/drink.dart';
+import '../models/menu.dart';
 
-class DrinkTile extends StatelessWidget {
-  final Drink drink;
+class MenuTile extends StatelessWidget {
+  final Menu menu;
   void Function()? onTap;
   final Widget trailing;
-  DrinkTile({
+  MenuTile({
     super.key,
-    required this.drink,
+    required this.menu,
     required this.onTap,
     required this.trailing,
   });
@@ -26,9 +26,9 @@ class DrinkTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: ListTile(
-          title: Text(drink.name),
-          subtitle: Text(drink.price),
-          leading: Image.asset(drink.imagePath),
+          title: Text(menu.name),
+          subtitle: Text(menu.price),
+          leading: Image.asset(menu.imagePath),
           trailing: trailing,
         ),
       ),

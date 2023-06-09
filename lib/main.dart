@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       create: (context) => Shop(),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "Shop Coffee",
+        title: "Rumah Makan Nasi Padang",
         theme: ThemeData(primarySwatch: Colors.brown),
         home: const LoginPage(),
       ),
